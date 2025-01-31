@@ -10,12 +10,22 @@ class FormComponent extends Component {
     const formElement = document.createElement("form");
     formElement.innerHTML = `
         <div id="form">
-            <h1> Calculator  App</h1>
         </div>
         `;
-
+    formElement.onsubmit = this.submitForm;
     const nav = document.querySelector("nav");
     nav.insertAdjacentElement("afterend", formElement);
+  }
+
+  static submitForm(event) {
+    event.preventDefault();
+    const numberOne = document.querySelector("#numberOne").value;
+    const numberTwo = document.querySelector("#numberTwo").value;
+    const operator = document.querySelector("#select-input").value;
+    const result = new Function(
+      `return ${+numberOne} ${operator} ${+numberTwo}`
+    )();
+    alert(result);
   }
 }
 

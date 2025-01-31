@@ -6,15 +6,11 @@ class bttnComponent extends Component {
       this.isloadedStyles = true;
     }
     const buttonElement = document.createElement("button");
+    buttonElement.type = "submit";
     buttonElement.innerHTML = "Calculate";
     document
       .querySelector("form")
       .insertAdjacentElement("beforeend", buttonElement);
-
-    buttonElement.addEventListener("click", (e) => {
-      e.preventDefault();
-      console.log("Button clicked");
-    });
   }
 }
 export default bttnComponent;
